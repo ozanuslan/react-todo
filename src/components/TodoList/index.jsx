@@ -1,6 +1,6 @@
 import Todo from "../Todo";
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos, setTodos, filteredTodos }) => {
   const deleteHandler = (id) => {
     setTodos(
       todos.filter((todo) => {
@@ -8,6 +8,7 @@ const TodoList = ({ todos, setTodos }) => {
       })
     );
   };
+
   const completeHandler = (id) => {
     setTodos(
       todos.map((todo) => {
@@ -16,10 +17,11 @@ const TodoList = ({ todos, setTodos }) => {
       })
     );
   };
+
   return (
     <div className="todo-container">
       <ul className="todo-list">
-        {todos.map((todo) => {
+        {filteredTodos.map((todo) => {
           return (
             <Todo
               key={todo.id}
