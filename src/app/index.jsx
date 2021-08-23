@@ -52,11 +52,9 @@ const App = () => {
         <h1>Welcome to your ToDo list</h1>
       </header>
       <Form
-        todos={todos}
         setTodos={setTodos}
         inputText={inputText}
         setInputText={setInputText}
-        status={status}
         setStatus={setStatus}
       />
       <TodoList

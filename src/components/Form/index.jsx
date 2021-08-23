@@ -1,18 +1,14 @@
-import { uuid } from "uuidv4";
-const Form = ({
-  todos,
-  setTodos,
-  inputText,
-  setInputText,
-  status,
-  setStatus,
-}) => {
+import { v4 as uuid } from "uuid";
+const Form = ({ setTodos, inputText, setInputText, status, setStatus }) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
   const submitTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([...todos, { text: inputText, completed: false, id: uuid() }]);
+    setTodos((prev) => [
+      ...prev,
+      { text: inputText, completed: false, id: uuid() },
+    ]);
     setInputText("");
   };
   const statusHandler = (e) => {
